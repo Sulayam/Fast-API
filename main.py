@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from typing import Optional
 from pydantic import BaseModel
@@ -52,3 +53,9 @@ def create_blog(request: Blog):
 #             "Client's Kunna girth": kunner.Kunna_girth,
 #             "Client's Kunna status": kunner.Kunna_boner
 #             }
+
+
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="localhost", port=9000)
+
+# pip install -r requirements.txt
