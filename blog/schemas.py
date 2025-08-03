@@ -41,3 +41,10 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: str | None = None
+
+class Test(BaseModel):
+    message1: str
+    message2: str
+
+    class Config():
+        orm_mode = True
