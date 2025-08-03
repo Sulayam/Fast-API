@@ -17,8 +17,9 @@ def all_blogs(db: Session= Depends(get_db)):
     return blogs
 
 
-def show(id: int, db: Session = Depends(get_db)):
-    blog = db.query(models.Blog).filter(models.Blog.id == id).first()
+def show(id: int, sub_id:int, db: Session = Depends(get_db)):
+    sub_id = id-1
+    blog = db.query(models.Blog).filter(models.Blog.id == sub_id).first()
     if not blog:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Blog with id {id} is not available")
     return blog

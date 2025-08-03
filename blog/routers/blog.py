@@ -20,8 +20,8 @@ def all_blogs(db: Session= Depends(get_db), current_user: schemas.User = Depends
     return blog.all_blogs(db)
 
 @router.get("/{id}", status_code=200)
-def show(id: int, db: Session = Depends(get_db), current_user: schemas.User = Depends(get_current_user)):
-    return blog.show(id, db)
+def show(id: int, sub_id: int = 0, db: Session = Depends(get_db), current_user: schemas.User = Depends(get_current_user)):
+    return blog.show(id,sub_id, db)
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def destroy(id: int, db: Session = Depends(get_db), current_user: schemas.User = Depends(get_current_user)):
